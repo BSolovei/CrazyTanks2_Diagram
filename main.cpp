@@ -1,6 +1,10 @@
-#include "Game.h"
+
+//#include "GameMove.h"
 #include <conio.h>
 #include <iostream>
+#include "Game.h"
+#include "move.h"
+#include "fire.h"
 using namespace std;
 
 int main() {
@@ -10,25 +14,28 @@ int main() {
 	CGame *game = new CGame(30,20, enemyt);
 	game->show();
 	
-
+	fire* fr = new fire();
+	cmove* mv = new cmove();
+	
 	bool stop = false;
+	
 	while ((game->getT()>0) &&(!stop)) {
 		switch (_getch()) {
 		case 72:
-			stop=game->moveAll(72);
+			stop=mv->moveAll(72);
 
 			break;
 		case 80:
-			stop = game->moveAll(80);
+			stop = mv->moveAll(80);
 			break;
 		case 75:
-			stop = game->moveAll(75);
+			stop = mv->moveAll(75);
 			break;
 		case 77:
-			stop = game->moveAll(77);
+			stop = mv->moveAll(77);
 			break;
 		case 32:
-			game->fire();
+			fr->fireTanks();
 			break;
 
 			

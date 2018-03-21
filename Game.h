@@ -1,9 +1,12 @@
 #pragma once
 #include "Obj.h"
+//#include "GameMove.h"
 #include "Treasure.h"
 #include "Tank.h"
 class CGame
 {
+protected:
+
 	int m;
 	int n;
 	int t;
@@ -11,20 +14,20 @@ class CGame
 	CTank** tanks;
 	CObj*** matr;
 	Treasure* tr;
+	
 	int counter;
 	void Inizialize();
 
-	bool move(int code, CTank* tank, bool ourt);
-public:
 	
+public:
+
 	CGame(int _m = 15,int _n = 15,int _t = 6);
+
 	int getT() { return t; };
-	int getcounter() { return counter; };
+    int getcounter() { return counter; };
 	void setcounter( int _c) { counter=_c; };
 	void show()const;
-	bool moveAll(int code);
-	void fire();	
 	void resurrection();
-	~CGame();
+	virtual ~CGame();
 };
 
